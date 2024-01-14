@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fyp_orvba/chat_screen.dart';
 import 'package:fyp_orvba/components/button.dart';
 import 'package:fyp_orvba/components/packageContainer.dart';
 import 'package:fyp_orvba/components/textStyels.dart';
@@ -59,9 +60,14 @@ class ResultDetailsScreen extends StatelessWidget {
                                       "Horizon Petroleum",
                                       style: style12White,
                                     ),
-                                    trailing: const Icon(
-                                      Icons.chat,
-                                      color: Colors.white,
+                                    trailing: GestureDetector(
+                                      onTap: (){
+                                        Navigator.push(context, MaterialPageRoute(builder: (context)=>const ChatScreen()));
+                                      },
+                                      child: const Icon(
+                                        Icons.chat,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ))
                                 ],
