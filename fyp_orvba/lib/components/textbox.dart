@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class textBox extends StatefulWidget {
   final String text;
-  final IconData icon;
-  const textBox({super.key,required this.text, required this.icon});
+  final IconData? icon;
+  int? maxLines;
+  textBox({super.key,required this.text, this.icon, this.maxLines=1});
 
   @override
   State<textBox> createState() => _textBoxState();
@@ -15,6 +16,7 @@ class _textBoxState extends State<textBox> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: TextFormField(
+        maxLines: widget.maxLines,
         decoration: InputDecoration(
           hintText: widget.text,
           prefixIcon: Icon(widget.icon,color: Colors.black,),

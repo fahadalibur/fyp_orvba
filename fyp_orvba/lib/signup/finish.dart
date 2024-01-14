@@ -3,44 +3,50 @@ import 'package:fyp_orvba/components/button.dart';
 import 'package:fyp_orvba/login_screen.dart';
 
 class verifiedUser extends StatefulWidget {
-  const verifiedUser({super.key});
+  String? title;
+  String? subtitle;
+  VoidCallback? onPress;
+  verifiedUser({super.key, this.title="Congratulations!", this.subtitle="You are now verified user!", this.onPress});
 
   @override
   State<verifiedUser> createState() => _verifiedUserState();
 }
 
 class _verifiedUserState extends State<verifiedUser> {
+
+  void _letsGo(){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>userLogin()));
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
-
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           const Expanded(
             flex: 4,
             child: Flexible(child: Image(image: AssetImage('assets/check.jpg'))),
           ),
-          const Expanded(
+           Expanded(
             flex: 5,
             child: Flexible(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Congratulations!',style: TextStyle(color: Colors.black,fontSize: 30,fontWeight: FontWeight.bold),),
-                  Text(textAlign: TextAlign.center,'You are now verified user',style: TextStyle(fontSize: 20),),
+                  Text(widget.title!,style: TextStyle(color: Colors.black,fontSize: 30,fontWeight: FontWeight.bold),),
+                  Text(widget.subtitle!,textAlign: TextAlign.center,style: TextStyle(fontSize: 20),),
                 ],
               ),
             ),
           ),
+          const Spacer(),
           Expanded(
             child: Flexible(
               child: Column(
                 children: [
                   Button(
                     text: "Let's Go",
-                    onpress: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>userLogin()));
-                    },
+                    onpress: widget.onPress == null? _letsGo:widget.onPress!
                   ),
                 ],
               ),

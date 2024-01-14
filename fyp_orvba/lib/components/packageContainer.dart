@@ -10,11 +10,15 @@ class PackageContainer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Container(
-          width: MediaQuery.of(context).size.width / 2,
+          width: MediaQuery.of(context).size.width / 1.7,
           height: MediaQuery.of(context).size.height / 3,
           decoration: BoxDecoration(
               color: const Color(0xff7159E3),
-              borderRadius: BorderRadius.circular(10)),
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(color: Colors.black38,blurRadius: 6,offset: Offset(1,1),spreadRadius: 1)
+              ]
+          ),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child:
@@ -34,10 +38,10 @@ class PackageContainer extends StatelessWidget {
                       title: "Engine Service",
                     ),
                     PackageText(
-                      title: "Engine Service",
+                      title: "Electric Repair",
                     ),
                     PackageText(
-                      title: "Engine Service",
+                      title: "Tyre Repair",
                     ),
                   ],
                 ),

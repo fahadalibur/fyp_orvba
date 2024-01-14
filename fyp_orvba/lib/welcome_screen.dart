@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:fyp_orvba/components/admin_checker.dart';
 import "package:fyp_orvba/components/button.dart";
 import 'package:fyp_orvba/signup/user_signup.dart';
 import 'package:gap/gap.dart';
@@ -40,6 +41,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Button(
                       text: 'User',
                       onpress: () {
+                        setAdmin(false);
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => const userSignup()),
@@ -47,7 +49,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       },
                     ),
                     const Gap(12),
-                    const uniqueButton(text: 'Mechanic')
+                    GestureDetector(
+                        onTap: (){
+                          setAdmin(true);
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const userSignup()));
+                        },
+                        child: const uniqueButton(text: 'Mechanic'))
                   ],
                 ),
               ),

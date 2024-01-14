@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fyp_orvba/Business%20Screens/crete_%20business.dart';
+import 'package:fyp_orvba/Business%20Screens/manage_business.dart';
 import 'package:fyp_orvba/components/textStyels.dart';
+
+import '../login_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -94,35 +98,17 @@ class _DashboardScreenState extends State<DashboardScreen>
               ),
               child: Column(
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Column(
-                        children: [
-                          const CircleAvatar(
-                            backgroundColor: Colors.pink,
-                            radius: 35,
-                          ),
-                          Text(
-                            "Fahad Rasool",
-                            style: style18boldWhite,
-                          ),
-                          Text(
-                            "fahadalibur@gmail.com",
-                            style: style13boldWhite,
-                          ),
-                        ],
-                      )
-                    ],
+                  const CircleAvatar(
+                    backgroundColor: Colors.pink,
+                    radius: 35,
+                  ),
+                  Text(
+                    "Fahad Rasool",
+                    style: style18boldWhite,
+                  ),
+                  Text(
+                    "fahadalibur@gmail.com",
+                    style: style13boldWhite,
                   ),
                 ],
               ),
@@ -136,7 +122,9 @@ class _DashboardScreenState extends State<DashboardScreen>
                 'Home',
                 style: style13,
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
             ListTile(
               leading: const Icon(
@@ -147,7 +135,9 @@ class _DashboardScreenState extends State<DashboardScreen>
                 'Add Business',
                 style: style13,
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const CreateBusines()));
+              },
             ),
             ListTile(
               leading: const Icon(
@@ -155,10 +145,12 @@ class _DashboardScreenState extends State<DashboardScreen>
                 size: 20,
               ),
               title: Text(
-                'Update Business',
+                'Manage Business',
                 style: style13,
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const ManageBusiness()));
+              },
             ),
             ListTile(
               leading: const Icon(
@@ -169,7 +161,9 @@ class _DashboardScreenState extends State<DashboardScreen>
                 'Logout',
                 style: style13,
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>userLogin()));
+              },
             ),
           ],
         )),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fyp_orvba/components/holderContainer.dart';
 import 'package:fyp_orvba/components/textStyels.dart';
+import 'package:fyp_orvba/login_screen.dart';
+import 'package:fyp_orvba/searchResults.dart';
 
 class UserDashboard extends StatelessWidget {
   const UserDashboard({super.key});
@@ -18,57 +20,79 @@ class UserDashboard extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Column(
+      body: Stack(
         children: [
-          Expanded(
-            child: Row(
+          Align(
+            alignment: Alignment.topCenter,
+            child: Column(
               children: [
-                HolderContainer(
-                  title: "Petroleum",
-                  imageURL: "assets/gas.png",
-                  onpressed: () {},
+                const SizedBox(height: 30,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Container(
+                     width: double.infinity,
+                      child: Text("Please select desired Station", textAlign: TextAlign.left,style: style14boldWhite,)),
                 ),
-                HolderContainer(
-                  title: "Service",
-                  imageURL: "assets/service.png",
-                  onpressed: () {},
+                Expanded(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      HolderContainer(
+                        title: "Petroleum",
+                        imageURL: "assets/gas.png",
+                        onpressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchResults(isPetroleum: true,)));
+                        },
+                      ),
+                      HolderContainer(
+                        title: "Service",
+                        imageURL: "assets/service.png",
+                        onpressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchResults(isPetroleum: false,)));
+                        },
+                      ),
+                    ],
+                  ),
                 ),
+                Spacer(flex: 2,)
               ],
             ),
           ),
-          Expanded(
-            flex: 2,
-            child: SingleChildScrollView(
-              child: Container(
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(50),
-                      topRight: Radius.circular(50),
-                    )),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.location_on),
-                          Text(
-                            "Your Location",
-                            style: head14bold,
-                          ),
-                        ],
-                      ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: MediaQuery.of(context).size.height*0.52,
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50),
+                    topRight: Radius.circular(50),
+                  )),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.location_on),
+                        Text(
+                          "Your Location",
+                          style: head14bold,
+                        ),
+                      ],
                     ),
-                    const Image(
+                  ),
+                 const Padding(
+                    padding:  EdgeInsets.all(4.0),
+                    child:  Image(
                       image: AssetImage("assets/map.PNG"),
                       width: double.infinity,
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
             ),
           )
@@ -85,35 +109,17 @@ class UserDashboard extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Column(
-                        children: [
-                          const CircleAvatar(
-                            backgroundColor: Colors.pink,
-                            radius: 35,
-                          ),
-                          Text(
-                            "Fahad Rasool",
-                            style: style18boldWhite,
-                          ),
-                          Text(
-                            "fahadalibur@gmail.com",
-                            style: style13boldWhite,
-                          ),
-                        ],
-                      )
-                    ],
+                  const CircleAvatar(
+                    backgroundColor: Colors.pink,
+                    radius: 35,
+                  ),
+                  Text(
+                    "Fahad Rasool",
+                    style: style18boldWhite,
+                  ),
+                  Text(
+                    "fahadalibur@gmail.com",
+                    style: style13boldWhite,
                   ),
                 ],
               ),
@@ -127,19 +133,21 @@ class UserDashboard extends StatelessWidget {
                 'Home',
                 style: style13,
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.settings,
-                size: 20,
-              ),
-              title: Text(
-                'Setting',
-                style: style13,
-              ),
-              onTap: () {},
-            ),
+            // ListTile(
+            //   leading: const Icon(
+            //     Icons.settings,
+            //     size: 20,
+            //   ),
+            //   title: Text(
+            //     'Setting',
+            //     style: style13,
+            //   ),
+            //   onTap: () {},
+            // ),
             ListTile(
               leading: const Icon(
                 Icons.logout,
@@ -149,7 +157,9 @@ class UserDashboard extends StatelessWidget {
                 'Logout',
                 style: style13,
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>userLogin()));
+              },
             ),
           ],
         )),
