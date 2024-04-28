@@ -28,10 +28,20 @@ TextStyle style12White = GoogleFonts.poppins(fontSize: 12, color: Colors.white);
 
 TextStyle style14boldWhite = GoogleFonts.poppins(
     fontSize: 14, fontWeight: FontWeight.bold, color: Colors.white);
+
+TextStyle style14Black = GoogleFonts.poppins(
+    fontSize: 14, color: Colors.black);
+
 TextStyle style14boldBlack = GoogleFonts.poppins(
     fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black);
 
+TextStyle style14boldGreen = GoogleFonts.poppins(
+    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.green);
+
 TextStyle style14boldGrey = GoogleFonts.poppins(
+    fontSize: 14, fontWeight: FontWeight.bold, color: Colors.grey);
+    
+TextStyle style14Grey = GoogleFonts.poppins(
     fontSize: 14, fontWeight: FontWeight.bold, color: Colors.grey);
 
 TextStyle style18boldBlack = GoogleFonts.poppins(

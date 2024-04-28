@@ -40,3 +40,36 @@ class HolderContainer extends StatelessWidget {
     );
   }
 }
+
+
+class HolderContainer2 extends StatelessWidget {
+  final IconData iconData;
+  final String title;
+  final VoidCallback onpressed;
+  HolderContainer2({required this.title, required this.iconData, required this.onpressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: GestureDetector(
+        onTap: onpressed,
+        child: Container(
+          margin: EdgeInsets.all(10),
+          width: double.infinity,
+          decoration: BoxDecoration(
+              color: Color.fromARGB(255, 202, 200, 200), borderRadius: BorderRadius.circular(10)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+               Icon(iconData,size: 70,),
+              Text(
+                title,
+                style: head14bold,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

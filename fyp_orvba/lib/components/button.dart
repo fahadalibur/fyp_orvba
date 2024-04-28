@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fyp_orvba/components/textStyels.dart';
 
 class Button extends StatefulWidget {
   final String text;
@@ -54,6 +55,28 @@ class _uniqueButtonState extends State<uniqueButton> {
           ),
           child: Center(child: Text(widget.text, style: const TextStyle(color: Color(0xff7159E3),fontWeight: FontWeight.bold,fontSize: 20),)),
         ),
+      ),
+    );
+  }
+}
+
+
+class MyTextButton extends StatelessWidget {
+  final String title;
+  final VoidCallback onPressed;
+   MyTextButton({required this.title, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        height: 40,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(4),
+          color: const Color(0xff7159E3)
+        ),
+        child: Center(child: Text(title, style: style13boldWhite,)),
       ),
     );
   }
