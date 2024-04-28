@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "822988408196",
+    "project_id": "orvba-30a29",
+    "storage_bucket": "orvba-30a29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822988408196:android:5dff7dc8998777fbd489d1",
+        "android_client_info": {
+          "package_name": "com.example.fyp_orvba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm0HVgpTNRsUv1u9_1cbCCyATBwH2f6mg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
